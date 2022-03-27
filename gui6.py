@@ -1,0 +1,70 @@
+from tkinter import *
+
+def getvalue():
+    #print(name.get())
+    #print(age.get())
+    #print(Phone.get())
+    #print(Gender.get())
+    #print(Emergency.get())
+    #print(AdharNumber.get())
+    #print(Modeofpayment.get())
+    print(f"{name.get(),age.get(), Phone.get(), Gender.get(),Emergency.get(),AdharNumber.get()}")
+    print("Fine!")
+
+    with open('record.txt','a') as f :
+        f.write(f"{name.get(),age.get(),Phone.get(), Gender.get(),Emergency.get(),AdharNumber.get()}")
+root = Tk()
+root.geometry('633x333')
+root.title("Traveler")
+
+Label(root, text='Welcome to Pradhumna Traveler', pady=6, font='comicsansms 13 bold').grid(row=0, column=4)
+
+#frame = Frame(root, bg='red', relief=SUNKEN)
+#frame.pack(side=TOP, anchor='sw')
+#button1 = Button(frame, fg='Green', bg='Red', text='Home')
+#button1.pack(side=RIGHT, anchor='ne')
+
+name = Label(root, text='Name')
+age = Label(root, text='Age')
+Phone = Label(root, text='Phone')
+Gender = Label(root, text='Gender')
+Emergency = Label(root, text='Emergency')
+AdharNumber = Label(root, text='AdharNumber')
+Modeofpayment = Label(root, text='Modeofpayment ')
+name.grid(row=1 , column=1)
+age.grid(row=2, column=1)
+Phone.grid(row=3, column=1)
+Gender.grid(row=4, column=1)
+Emergency.grid(row=5, column=1)
+AdharNumber.grid(row=6, column=1)
+Modeofpayment.grid(row=7, column=1)
+name = StringVar()
+age = StringVar()
+Phone = StringVar()
+Gender = StringVar()
+Emergency = StringVar()
+AdharNumber = StringVar()
+Modeofpayment = StringVar()
+food = IntVar()
+
+nameentry = Entry(root, textvariable=name)
+ageentry = Entry(root, textvariable=age)
+Phoneentry = Entry(root, textvariable=Phone)
+Genderentry = Entry(root, textvariable=Gender)
+Emergencyentry = Entry(root, textvariable=Emergency)
+AdharNumberentry = Entry(root, textvariable=AdharNumber)
+Modeofpaymententry = Entry(root, textvariable=Modeofpayment)
+
+
+nameentry.grid(row=1, column=2)
+ageentry.grid(row=2, column=2)
+Phoneentry.grid(row=3, column=2)
+Genderentry.grid(row=4, column=2)
+Emergencyentry.grid(row=5, column=2)
+AdharNumberentry.grid(row=6, column=2)
+Modeofpaymententry.grid(row=7, column=2)
+
+foodservice = Checkbutton(text='Check avilable Flight', variable=food).grid(row=10,column=2)
+Button(text="Submit", command=getvalue).grid(row=8, column=1)
+
+root.mainloop()
